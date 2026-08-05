@@ -46,6 +46,7 @@ onMounted(() => {
       <nav :class="['main-nav', { 'is-open': menuOpen }]" aria-label="Main navigation">
         <a href="#about" @click="closeMenu">{{ content.nav.about }}</a>
         <a href="#games" @click="closeMenu">{{ content.nav.games }}</a>
+        <a href="#support" @click="closeMenu">{{ content.nav.support }}</a>
         <a href="#contact" @click="closeMenu">{{ content.nav.contact }}</a>
         <button class="language-button" type="button" @click="toggleLanguage">{{ content.language }}</button>
       </nav>
@@ -56,7 +57,7 @@ onMounted(() => {
         <p class="eyebrow"><span class="spark">✦</span> {{ content.eyebrow }}</p>
         <h1>{{ content.heroTitle }} <em>{{ content.heroAccent }}</em></h1>
         <p class="hero-description">{{ content.heroBody }}</p>
-        <a class="button button-primary" href="#games">{{ content.explore }} <span aria-hidden="true">↓</span></a>
+        <div class="hero-actions"><a class="button button-primary" href="#games">{{ content.explore }} <span aria-hidden="true">↓</span></a><a class="button button-secondary" href="#support">{{ content.support }} <span aria-hidden="true">♥</span></a></div>
         <a class="scroll-hint" href="#games"><span></span>{{ content.scrollHint }}</a>
       </div>
       <div class="abstract-art" aria-hidden="true">
@@ -97,6 +98,13 @@ onMounted(() => {
           </div>
         </div>
         <div class="screenshots-block"><p class="eyebrow">{{ content.screenshots }}</p><div class="screenshots"><img v-for="(screenshot, index) in siteConfig.assets.screenshots" :key="screenshot" :src="screenshot" :alt="`Paws & Seek game screenshot ${index + 1}`" loading="lazy" /></div></div>
+      </div>
+    </section>
+
+    <section id="support" class="support-section">
+      <div class="section-shell support-grid">
+        <img class="support-image" :src="siteConfig.assets.koFiPromotion" alt="Support ChillCoqui on Ko-fi" loading="lazy" />
+        <div class="support-copy"><p class="eyebrow">{{ content.supportKicker }}</p><h2>{{ content.supportTitle }}</h2><p>{{ content.supportBody }}</p><a class="button button-primary" :href="siteConfig.koFi" target="_blank" rel="noopener noreferrer">{{ content.supportButton }} <span aria-hidden="true">↗</span></a></div>
       </div>
     </section>
 
