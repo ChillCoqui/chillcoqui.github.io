@@ -94,7 +94,10 @@ onMounted(() => {
             <p class="game-intro">{{ content.gameIntro }}</p>
             <h3>{{ content.featuresTitle }}</h3>
             <ul><li v-for="feature in content.features" :key="feature"><span>✦</span>{{ feature }}</li></ul>
-            <a class="button button-store" :href="siteConfig.googlePlay" target="_blank" rel="noopener noreferrer"><span class="play-triangle">▶</span>{{ content.play }}</a>
+            <div class="game-actions">
+              <a class="button button-store" :href="siteConfig.googlePlay" target="_blank" rel="noopener noreferrer"><span class="play-triangle">▶</span>{{ content.play }}</a>
+              <a class="button button-game-support" :href="siteConfig.pawsAndSeekKoFi" target="_blank" rel="noopener noreferrer"><span class="support-heart" aria-hidden="true">♥</span>{{ content.gameSupport }} <span aria-hidden="true">↗</span></a>
+            </div>
           </div>
         </div>
         <div class="screenshots-block"><p class="eyebrow">{{ content.screenshots }}</p><div class="screenshots"><img v-for="(screenshot, index) in siteConfig.assets.screenshots" :key="screenshot" :src="screenshot" :alt="`Paws & Seek game screenshot ${index + 1}`" loading="lazy" /></div></div>
